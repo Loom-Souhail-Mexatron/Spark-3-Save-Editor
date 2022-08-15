@@ -1,5 +1,5 @@
 //
-//	Spark the Electric Jester 3 Save Editor
+//	Spark the Electric Jester 3 Full Save Editor
 //
 
 const prompt = require('prompt-sync')();
@@ -13,7 +13,8 @@ const editJsonFile = require("edit-json-file");
 const stages = 300
 const powers = ["Speed Buff", "Explosion", "Speed Blast Boost",
 				"Power Buff", "Teleport", "Scouter",
-				"Blast Machine Gun", "Reaper"]
+				"Blast Machine Gun", "Reaper", "Float",
+	       			"Fark", "Sfarx"]
 
 
 console.log("You can exit by writing 'exit' or clicking Esc.")
@@ -75,6 +76,7 @@ function handleChoice(file, id){
 		case 2:
 			let diffC = ask("Choose Combat Difficulty (0, 1, 2, 3, 4)")
 			file.set("CombatDificulty", diffC);
+			file.set("OriginalCombatDificulty", diffC);
 			break;
 		case 3:
 			let diffP = ask("Choose Platforming Difficulty (0, 1, 2)")
@@ -146,17 +148,29 @@ function handleChoice(file, id){
 			file.set("Power_Reaper_Unlocked", true)
 			break;
 		case 16:
+			file.set("Power_Float", true)
+			file.set("Power_Float_Unlocked", true)
+			break;
+		case 17:
+			file.set("Power_Fark", true)
+			file.set("Power_Fark_Unlocked", true)
+			break;
+		case 18:
+			file.set("Power_Sfarx", true)
+			file.set("Power_Sfrax_Unlocked", true)
+			break;
+		case 19:
 			let bits = ask("Insert desired bits number: ")
 			file.set("Bits", bits)
 			break;
-		case 17:
+		case 20:
 			file.set("ChargedBlast", true)
 			file.set("RailBoost", true)
 			file.set("RegenBreak", true)
 			file.set("JesterSwipe", true)
 			file.set("JesterSwipeEnabled", true)
 			break;
-		case 18:
+		case 21:
 			file.set("AllMovesReminder", true)
 			file.set("WallWalk", true)
 			file.set("Rail", true)
@@ -172,7 +186,7 @@ function handleChoice(file, id){
 			file.set("SuperMoves", true)
 			file.set("JesterDashTut", true)
 			break;
-		case 19:
+		case 22:
 			for(let j=0; j <= 18; j++){
 				handleChoice(file,j)
 			};
@@ -188,10 +202,11 @@ const edits = ["Toggle Slot in Use","Finish the Game",
 	"Set Collectathon Stage Points to 999,999,999","Get all Exploration Medals", //Note that there are 10
 	"Set Power in DPad","Unlock all Moves",
 	"Unlock all Specials","Unlock the Reaper",
+	"Unlock Float", "Unlock Fark", "Unlock Sfarx",
 	"Set Bits Number","Unlock all Jester Powers",
 	"Turn off Tutorials", "All of the Above!"]
 
-//20 possible edits
+//23 possible edits
 
 
 //Keep asking the user to choose an edit
