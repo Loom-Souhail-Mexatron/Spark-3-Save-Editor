@@ -23,6 +23,7 @@ A tool to edit Spark the Electric Jester 3 save files. In order to work, it must
 - Unlock all Moves
 - Unlock all Specials
 - Unlock **the Reaper**
+- Unlock **Float, Fark and Sfarx!**
 - Set Bits Number
 - Unlock all Jester Powers
 - Turn off Tutorials
